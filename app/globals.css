@@ -1,27 +1,205 @@
+
+/* @config '../tailwind.config.ts' */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+#ButtonWidget button{
+  text-transform: capitalize;
+}
+.ButtonWidget::before {
+  transform-origin: left;
+  width: 0%;
+  content: "";
+  position: absolute;
+  left: 0;
+  height:100%;
+  z-index:-1;
+}
+
+.ButtonWidget:hover::before {
+  width: 50%;
+}
+.ButtonWidget::after {
+  transform-origin: right;
+  width: 0%;
+  content: "";
+  position: absolute;
+  right: 0;
+  height:100%;
+  z-index: -1;
+}
+
+.ButtonWidget:hover::after {
+  width: 50%;
+  }
+
+.TextWidget{
+  letter-spacing: .6px;
+}
+
+#ourTeamCard_Button{
+  background: linear-gradient(135deg, #23bdb8, #43e794);
+  color:white;
+  transform: translateX();
+}
+
+@media only screen and (max-width:1024px) {
+
+  #Navbar_Btn {
+    /* padding: 5px 10px;
+    width:120px; */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.hero_bg::before{
+  content: "";
+  background: url(/hero-bg-background.png);
+  background-position: 200% 100%;
+  /* position: absolute; */
+  top:0;
+  width: 100px;
+  width:600px;
+  background-size: cover;
+  z-index: 99999;
 }
+
+.max-width{
+  width: 100%;
+  max-width: 75rem;
+  padding:0 6vw;
+  /* padding-inline-start: 7rem;
+  padding-inline-end: 7rem; */
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+}
+.container-reverse{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  flex-direction: column;
+}
+
+.funfactsBg{
+  background-position: 200% 100%;
+  /* background-size: contain; */
+}
+@keyframes slide {
+  from{
+    transform:translateX(0) ;
+  }
+  to{
+    transform: translateX(-100% * 9);
+  }
+}
+
+.animateremove{
+  animation: animateremove 0s;
+}
+.feedbackSlide{
+  /* background-color: black; */
+   animation: 5s slide infinite linear;
+   /* transition:none;
+   transform-style: flat;
+   transform-origin: 0%; */
+   ;
+}
+
+
+.reverse{
+  flex-direction: row-reverse;
+}
+
+.container {
+  display: flex;
+  overflow: hidden;
+  width: 300px;
+  /* Adjust the width as needed */
+}
+
+.item {
+  flex: 0 0 auto;
+  width: 100px;
+  /* Adjust the width as needed */
+  height: 100px;
+  /* Adjust the height as needed */
+  background-color: #ccc;
+  margin-right: 10px;
+  /* Adjust the margin as needed */
+  animation: infiniteTranslateX linear infinite;
+  /* animation-duration: 5s; */
+  /* Adjust the duration as needed */
+}
+
+.infiniteTranslateOn{
+  animation:infiniteTranslateX 9s steps(9)  infinite forwards ;
+  background-color: red;
+  animation-fill-mode: none;
+  transition: all 1s;
+  /* animation-name: infiniteTranslateX; */
+}
+
+.why_choose_us{
+  background:linear-gradient(135deg, #23bdb8, #43e794)
+}
+
+.blog_date{
+      background: linear-gradient(135deg, #23bdb8, #43e794);
+}
+
+@keyframes infiniteTranslateX {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(64px * 9));
+    /* transform: translateX(calc(64 * 10)+"px"); */
+    /* Adjust the percentage and number of items */
+  }
+}
+
+.resetanimation{
+  animation: reset;
+}
+
+@keyframes animateremove {
+  0%{
+    transform: translateX(inherit);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+    .custom_scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+  
+    .custom_scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgb(var(--theme-dark-text) / 0.5);
+    }
+    
+    .ourservices_card::before:hover{
+      /* left: 0;
+      right: 0;
+      bottom: 0; */
+      /* opacity: 0; */
+    }
+    /* .*/
